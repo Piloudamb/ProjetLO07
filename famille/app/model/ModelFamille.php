@@ -1,20 +1,18 @@
 
-<!-- ----- debut ModelVin -->
+<!-- ----- debut ModelFamille -->
 
 <?php
 require_once 'Model.php';
 
-class ModelVin {
- private $id, $cru, $annee, $degre;
+class ModelFamille {
+ private $id, $nom;
 
  // pas possible d'avoir 2 constructeurs
- public function __construct($id = NULL, $cru = NULL, $annee = NULL, $degre = NULL) {
+ public function __construct($id = NULL, $nom = NULL) {
   // valeurs nulles si pas de passage de parametres
   if (!is_null($id)) {
    $this->id = $id;
-   $this->cru = $cru;
-   $this->annee = $annee;
-   $this->degre = $degre;
+   $this->cru = $nom;
   }
  }
 
@@ -22,34 +20,17 @@ class ModelVin {
   $this->id = $id;
  }
 
- function setCru($cru) {
-  $this->cru = $cru;
- }
-
- function setAnnee($annee) {
-  $this->annee = $annee;
- }
-
- function setDegre($degre) {
-  $this->degre = $degre;
+ function setNom($nom) {
+  $this->nom = $nom;
  }
 
  function getId() {
   return $this->id;
  }
 
- function getCru() {
-  return $this->cru;
+ function getNom() {
+  return $this->nom;
  }
-
- function getAnnee() {
-  return $this->annee;
- }
-
- function getDegre() {
-  return $this->degre;
- }
- 
  
 // retourne une liste des id
  public static function getAllId() {
@@ -82,10 +63,10 @@ class ModelVin {
  public static function getAll() {
   try {
    $database = Model::getInstance();
-   $query = "select * from vin";
+   $query = "select * from famille";
    $statement = $database->prepare($query);
    $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVin");
+   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelFamille");
    return $results;
   } catch (PDOException $e) {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());

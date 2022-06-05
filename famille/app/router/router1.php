@@ -1,7 +1,7 @@
 
 <!-- ----- debut Router1 -->
 <?php
-require ('../controller/ControllerVin.php');
+require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerProducteur.php');
 require ('../controller/ControllerCave.php');
 
@@ -17,12 +17,12 @@ $action = htmlspecialchars($param["action"]);
 
 // --- Liste des méthodes autorisées
 switch ($action) {
- case "vinReadAll" :
+ case "familleReadAll" :
  case "vinReadOne" :
  case "vinReadId" :
  case "vinCreate" :
  case "vinCreated" :
-  ControllerVin::$action();
+  ControllerFamille::$action();
   break;
  
  case "producteurReadAll" :
@@ -42,7 +42,7 @@ switch ($action) {
  // Tache par défaut
  default:
   $action = "caveAccueil";
-  ControllerVin::$action();
+  ControllerFamille::$action();
 }
 ?>
 <!-- ----- Fin Router1 -->

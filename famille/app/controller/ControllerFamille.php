@@ -1,26 +1,26 @@
 
-<!-- ----- debut ControllerVin -->
+<!-- ----- debut ControllerFamille -->
 <?php
-require_once '../model/ModelVin.php';
+require_once '../model/ModelFamille.php';
 
-class ControllerVin {
+class ControllerFamille {
  // --- page d'acceuil
  public static function caveAccueil() {
   include 'config.php';
   $vue = $root . '/app/view/viewCaveAccueil.php';
   if (DEBUG)
-   echo ("ControllerVin : caveAccueil : vue = $vue");
+   echo ("ControllerFamille : caveAccueil : vue = $vue");
   require ($vue);
  }
 
- // --- Liste des vins
- public static function vinReadAll() {
-  $results = ModelVin::getAll();
+ // --- Liste des familles
+ public static function familleReadAll() {
+  $results = ModelFamille::getAll();
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/vin/viewAll.php';
+  $vue = $root . '/app/view/famille/viewAll.php';
   if (DEBUG)
-   echo ("ControllerVin : vinReadAll : vue = $vue");
+   echo ("ControllerFamille : familleReadAll : vue = $vue");
   require ($vue);
  }
 
