@@ -1,6 +1,7 @@
 
 <!-- ----- debut ControllerFamille -->
 <?php
+session_start();
 require_once '../model/ModelFamille.php';
 
 class ControllerFamille {
@@ -24,50 +25,50 @@ class ControllerFamille {
   require ($vue);
  }
 
- // Affiche un formulaire pour sélectionner un id qui existe
- public static function vinReadId() {
-  $results = ModelVin::getAllId();
+ // Affiche un formulaire pour sélectionner un nom qui existe
+ public static function familleReadNom() {
+  $results = ModelFamille::getAllNom();
 
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/vin/viewId.php';
+  $vue = $root . '/app/view/famille/viewNom.php';
   require ($vue);
  }
 
- // Affiche un vin particulier (id)
- public static function vinReadOne() {
-  $vin_id = $_GET['id'];
-  $results = ModelVin::getOne($vin_id);
+ // sauve le nom en variable de session
+ public static function familleReadOne() {
+  $famille_nom = $_GET['nom'];
+  $_SESSION["nom"] = $famille_nom;
 
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/vin/viewAll.php';
+  $vue = $root . '/app/view/viewCaveAccueil.php';
   require ($vue);
  }
 
- // Affiche le formulaire de creation d'un vin
- public static function vinCreate() {
+ // Affiche le formulaire de creation d'une famille
+ public static function familleCreate() {
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/vin/viewInsert.php';
+  $vue = $root . '/app/view/famille/viewInsert.php';
   require ($vue);
  }
 
- // Affiche un formulaire pour récupérer les informations d'un nouveau vin.
+ // Affiche un formulaire pour récupérer les informations d'une nouvelle famille.
  // La clé est gérée par le systeme et pas par l'internaute
- public static function vinCreated() {
+ public static function familleCreated() {
   // ajouter une validation des informations du formulaire
-  $results = ModelVin::insert(
-      htmlspecialchars($_GET['cru']), htmlspecialchars($_GET['annee']), htmlspecialchars($_GET['degre'])
+  $results = ModelFamille::insert(
+      htmlspecialchars($_GET['nom'])
   );
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/vin/viewInserted.php';
+  $vue = $root . '/app/view/famille/viewInserted.php';
   require ($vue);
  }
  
 }
 ?>
-<!-- ----- fin ControllerVin -->
+<!-- ----- fin ControllerFamille -->
 
 

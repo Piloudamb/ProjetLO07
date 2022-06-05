@@ -32,11 +32,11 @@ class ModelFamille {
   return $this->nom;
  }
  
-// retourne une liste des id
- public static function getAllId() {
+// retourne une liste des nom
+ public static function getAllNom() {
   try {
    $database = Model::getInstance();
-   $query = "select id from vin";
+   $query = "select nom from famille";
    $statement = $database->prepare($query);
    $statement->execute();
    $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -74,7 +74,7 @@ class ModelFamille {
   }
  }
 
- public static function getOne($id) {
+ public static function getOne($nom) {
   try {
    $database = Model::getInstance();
    $query = "select * from vin where id = :id";
@@ -90,25 +90,23 @@ class ModelFamille {
   }
  }
 
- public static function insert($cru, $annee, $degre) {
+ public static function insert($nom) {
   try {
    $database = Model::getInstance();
 
    // recherche de la valeur de la clé = max(id) + 1
-   $query = "select max(id) from vin";
+   $query = "select max(id) from famille";
    $statement = $database->query($query);
    $tuple = $statement->fetch();
    $id = $tuple['0'];
    $id++;
 
    // ajout d'un nouveau tuple;
-   $query = "insert into vin value (:id, :cru, :annee, :degre)";
+   $query = "insert into famille value (:id, :nom)";
    $statement = $database->prepare($query);
    $statement->execute([
      'id' => $id,
-     'cru' => $cru,
-     'annee' => $annee,
-     'degre' => $degre
+     'nom' => $nom
    ]);
    return $id;
   } catch (PDOException $e) {

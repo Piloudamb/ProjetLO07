@@ -8,21 +8,19 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
   <div class="container">
     <?php
     include $root . '/app/view/fragment/fragmentCaveMenu.html';
-    include $root . '/app/view/fragment/fragmentCaveJumbotron.html';
+    include $root . '/app/view/fragment/fragmentCaveJumbotron.php';
     ?>
     <!-- ===================================================== -->
     <?php
     if ($results) {
-     echo ("<h3>Le nouveau vin a été ajouté </h3>");
+     echo ("<h3>Le nouveau famille a été ajouté </h3>");
      echo("<ul>");
      echo ("<li>id = " . $results . "</li>");
-     echo ("<li>cru = " . $_GET['cru'] . "</li>");
-     echo ("<li>annee = " . $_GET['annee'] . "</li>");
-     echo ("<li>degre = " . $_GET['degre'] . "</li>");
+     echo ("<li>nom = " . $_GET['nom'] . "</li>");
      echo("</ul>");
     } else {
-     echo ("<h3>Problème d'insertion du Vin</h3>");
-     echo ("id = " . $_GET['cru']);
+     echo ("<h3>Problème d'insertion de la Famille</h3>");
+     echo ("id = " . $_GET['nom']);
     }
 
     echo("</div>");

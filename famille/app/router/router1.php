@@ -18,10 +18,10 @@ $action = htmlspecialchars($param["action"]);
 // --- Liste des méthodes autorisées
 switch ($action) {
  case "familleReadAll" :
- case "vinReadOne" :
- case "vinReadId" :
- case "vinCreate" :
- case "vinCreated" :
+ case "familleReadOne" :
+ case "familleReadNom" :
+ case "familleCreate" :
+ case "familleCreated" :
   ControllerFamille::$action();
   break;
  

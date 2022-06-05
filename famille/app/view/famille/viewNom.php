@@ -1,5 +1,5 @@
 
-<!-- ----- début viewId -->
+<!-- ----- début viewNom -->
 <?php 
 require ($root . '/app/view/fragment/fragmentCaveHeader.html');
 ?>
@@ -8,18 +8,18 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
   <div class="container">
       <?php
       include $root . '/app/view/fragment/fragmentCaveMenu.html';
-      include $root . '/app/view/fragment/fragmentCaveJumbotron.html';
+      include $root . '/app/view/fragment/fragmentCaveJumbotron.php';
 
       // $results contient un tableau avec la liste des clés.
       ?>
 
     <form role="form" method='get' action='router1.php'>
       <div class="form-group">
-        <input type="hidden" name='action' value='vinReadOne'>
-        <label for="id">id : </label> <select class="form-control" id='id' name='id' style="width: 100px">
+        <input type="hidden" name='action' value='familleReadOne'>
+        <label for="nom">nom : </label> <select class="form-control" id='nom' name='nom' style="width: 100px">
             <?php
-            foreach ($results as $id) {
-             echo ("<option>$id</option>");
+            foreach ($results as $nom) {
+             echo ("<option>$nom</option>");
             }
             ?>
         </select>
@@ -32,4 +32,4 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
 
   <?php include $root . '/app/view/fragment/fragmentCaveFooter.html'; ?>
 
-  <!-- ----- fin viewId -->
+  <!-- ----- fin viewNom -->
