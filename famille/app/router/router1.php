@@ -2,7 +2,7 @@
 <!-- ----- debut Router1 -->
 <?php
 require ('../controller/ControllerFamille.php');
-require ('../controller/ControllerProducteur.php');
+require ('../controller/ControllerIndividu.php');
 require ('../controller/ControllerCave.php');
 
 // --- récupération de l'action passée dans l'URL
@@ -23,6 +23,10 @@ switch ($action) {
  case "familleCreate" :
  case "familleCreated" :
   ControllerFamille::$action();
+  break;
+
+ case "individuReadAll" :
+  ControllerIndividu::$action();
   break;
  
  case "producteurReadAll" :

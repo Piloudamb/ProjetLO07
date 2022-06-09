@@ -12,7 +12,7 @@ class ModelFamille {
   // valeurs nulles si pas de passage de parametres
   if (!is_null($id)) {
    $this->id = $id;
-   $this->cru = $nom;
+   $this->nom = $nom;
   }
  }
 
