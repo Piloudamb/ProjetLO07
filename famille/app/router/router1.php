@@ -26,6 +26,8 @@ switch ($action) {
   break;
 
  case "individuReadAll" :
+ case "individuCreate" :
+ case "individuCreated" :
   ControllerIndividu::$action();
   break;
  

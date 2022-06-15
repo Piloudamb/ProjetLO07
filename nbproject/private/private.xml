@@ -3,18 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             <file>file:/C:/Users/Amal%20Chikhaoui/Documents/NetBeansProjects/ProjetLO07/famille/app/controller/config.php</file>
             <file>file:/C:/Users/Amal%20Chikhaoui/Documents/NetBeansProjects/ProjetLO07/famille/index.php</file>
             <file>file:/C:/Users/Amal%20Chikhaoui/Documents/NetBeansProjects/ProjetLO07/famille/app/view/fragment/fragmentCaveMenu.html</file>
 =======
+=======
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/famille/viewInserted.php</file>
+>>>>>>> Stashed changes
             <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/fragment/fragmentCaveMenu.html</file>
             <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/controller/ControllerProducteur.php</file>
-            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/index.php</file>
-            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/fragment/fragmentCaveJumbotron.html</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/controller/config.php</file>
             <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/index.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/controller/ControllerCave.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/model/ModelIndividu.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/famille/viewAll.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/individu/viewAll.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/individu/viewInsert.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/producteur/viewInsert.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/index.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/controller/ControllerIndividu.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/fragment/fragmentCaveJumbotron.html</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/model/ModelFamille.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/individu/viewInserted.php</file>
             <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/view/famille/viewNom.php</file>
+<<<<<<< Updated upstream
 >>>>>>> 2df31ed4b1fbd11438088f0c8b527715ea1ee734
+=======
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/controller/ControllerFamille.php</file>
+            <file>file:/C:/Users/cercl/Documents/NetBeansProjects/ProjetLO07/famille/app/router/router1.php</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

@@ -13,7 +13,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
     <!-- ===================================================== -->
     <?php
     if ($results) {
-     echo ("<h3>Le nouveau famille a été ajouté </h3>");
+     echo ("<h3>La nouvelle famille a été ajoutée </h3>");
      echo("<ul>");
      echo ("<li>id = " . $results . "</li>");
      echo ("<li>nom = " . $_GET['nom'] . "</li>");
