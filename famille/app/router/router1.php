@@ -3,7 +3,7 @@
 <?php
 require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerIndividu.php');
-require ('../controller/ControllerCave.php');
+require ('../controller/ControllerGenealogie.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
