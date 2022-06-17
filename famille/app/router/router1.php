@@ -17,38 +17,40 @@ $action = htmlspecialchars($param["action"]);
 
 // --- Liste des méthodes autorisées
 switch ($action) {
- case "familleReadAll" :
- case "familleReadOne" :
- case "familleReadNom" :
- case "familleCreate" :
- case "familleCreated" :
-  ControllerFamille::$action();
-  break;
+    case "familleReadAll" :
+    case "familleReadOne" :
+    case "familleReadNom" :
+    case "familleCreate" :
+    case "familleCreated" :
+        ControllerFamille::$action();
+        break;
 
- case "individuReadAll" :
- case "individuCreate" :
- case "individuCreated" :
-  ControllerIndividu::$action();
-  break;
- 
- case "producteurReadAll" :
- case "producteurReadOne" :
- case "producteurReadId" :
- case "producteurCreate" :
- case "producteurCreated" :
- case "producteurReadRegion" :
- case "producteurNombreRegion" :   
-  ControllerProducteur::$action();
-  break;
+    case "individuReadAll" :
+    case "individuCreate" :
+    case "individuCreated" :
+    case "individuReadName" :
+    case "individuReadOne" :
+        ControllerIndividu::$action();
+        break;
 
- case "mesPropositions" :
-  ControllerCave::$action();
-  break;
+    case "producteurReadAll" :
+    case "producteurReadOne" :
+    case "producteurReadId" :
+    case "producteurCreate" :
+    case "producteurCreated" :
+    case "producteurReadRegion" :
+    case "producteurNombreRegion" :
+        ControllerProducteur::$action();
+        break;
 
- // Tache par défaut
- default:
-  $action = "caveAccueil";
-  ControllerFamille::$action();
+    case "mesPropositions" :
+        ControllerCave::$action();
+        break;
+
+    // Tache par défaut
+    default:
+        $action = "caveAccueil";
+        ControllerFamille::$action();
 }
 ?>
 <!-- ----- Fin Router1 -->

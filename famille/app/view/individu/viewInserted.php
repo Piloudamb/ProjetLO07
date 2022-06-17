@@ -29,8 +29,7 @@ require ($root . '/app/view/fragment/fragmentCaveHeader.html');
         }
 
         echo("</div>");
-
-        include $root . '/app/view/fragment/fragmentCaveFooter.html';
+        include $root . '/app/view/fragment/fragmentGenealogieFooter.html';
         ?>
         <!-- ----- fin viewInserted -->    
 
