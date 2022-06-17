@@ -28,7 +28,7 @@ class ModelEvenement {
 
  public function getIid() {
      return $this->iid;
- }
+ } 
 
  public function getEvent_type() {
      return $this->event_type;
@@ -83,7 +83,7 @@ class ModelEvenement {
  public static function getOneNom($nom) {
    try {
    $database = Model::getInstance();
-   $query = "select * from evenemet e , famille f  where f.nom = :nom and e.famille_id=f.id";
+   $query = "select * from evenement e , famille f  where f.nom = :nom and e.famille_id=f.id";
    $statement = $database->prepare($query);
    $statement->execute([
      'nom' => $nom

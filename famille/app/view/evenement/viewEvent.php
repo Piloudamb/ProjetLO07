@@ -13,14 +13,14 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
       <thead>
         <tr>
           <th scope = "col">id</th>
-          <th scope = "col">nom</th>
+         <th scope = "col">nom</th>
         </tr>
       </thead>
       <tbody>
           <?php
           // La liste des evenement pour une famille selectionnes             
           foreach ($results as $element) {
-           echo("<tr><td>" . $element->getFamille_id() ."</td><td>" . $element->getid() . "</td></tr><tr><td>" . $element->getIid() ."</td><td>" . $element->getEvent_type() . "</td></tr><tr><td>" . $element->getEvent_date() ."</td><td>" . $element->getEvent_lieu() . "</td></tr>");
+           echo("<tr><td>" . $element->getId() . "</td></tr><tr><td>" . $element->getIid() ."</td><td>" . $element->getEvent_type() . "</td></tr><tr><td>" . $element->getEvent_date() ."</td><td>" . $element->getEvent_lieu() . "</td></tr>");
           }
           ?>
       </tbody>

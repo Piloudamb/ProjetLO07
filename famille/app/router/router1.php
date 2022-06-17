@@ -32,7 +32,7 @@ switch ($action) {
   ControllerIndividu::$action();
   break;
  case "evenementReadNom":
- case "evenementReadOne" :
+ case "evenementReadOne" : 
  case "evenementcreate" :
  case "evenementcreated":
        ControllerEvenement::$action();
@@ -42,7 +42,7 @@ switch ($action) {
   ControllerFamille::$action();
 }
 /* case "mesPropositions" :
-  ControllerCave::$action();
+  ControllerCave::$action(); 
   break;
 
  // Tache par défaut
