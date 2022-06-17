@@ -29,7 +29,6 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         }
 
         echo("</div>");
-
         include $root . '/app/view/fragment/fragmentGenealogieFooter.html';
         ?>
         <!-- ----- fin viewInserted -->    

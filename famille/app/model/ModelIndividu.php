@@ -73,7 +73,7 @@ class ModelIndividu {
     public static function getAll() {
         try {
             $database = Model::getInstance();
-            $query = "select * from individu";
+            $query = "select * from individu where nom = '" . $_SESSION['nom'] . "'";
             $statement = $database->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
@@ -119,6 +119,23 @@ class ModelIndividu {
             return null;
         }
     }
+
+    // retourne une liste des nom
+    public static function getAllNom() {
+        try {
+            $database = Model::getInstance();
+            $query = "select nom, prenom from individu";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll();
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+
+    
 
 }
 ?>
