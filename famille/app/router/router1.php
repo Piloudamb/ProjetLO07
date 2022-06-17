@@ -3,7 +3,8 @@
 <?php
 require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerIndividu.php');
-require ('../controller/ControllerGenealogie.php');
+require ('../controller/ControllerEvenement.php');
+
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -26,20 +27,21 @@ switch ($action) {
   break;
 
  case "individuReadAll" :
+ case "individuCreate" :
+ case "individuCreated" :
   ControllerIndividu::$action();
   break;
- 
- case "producteurReadAll" :
- case "producteurReadOne" :
- case "producteurReadId" :
- case "producteurCreate" :
- case "producteurCreated" :
- case "producteurReadRegion" :
- case "producteurNombreRegion" :   
-  ControllerProducteur::$action();
-  break;
-
- case "mesPropositions" :
+ case "evenementReadNom":
+ case "evenementReadOne" :
+ case "evenementcreate" :
+ case "evenementcreated":
+       ControllerEvenement::$action();
+     break;
+ default:
+  $action = "caveAccueil";
+  ControllerFamille::$action();
+}
+/* case "mesPropositions" :
   ControllerCave::$action();
   break;
 
@@ -47,7 +49,6 @@ switch ($action) {
  default:
   $action = "caveAccueil";
   ControllerFamille::$action();
-}
+}*/
 ?>
 <!-- ----- Fin Router1 -->
-

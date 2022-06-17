@@ -1,5 +1,3 @@
-<!-- ----- début viewInsert -->
- <!-- creation de formulaire de rajout d'un evenement-->
 <?php 
 require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 ?>
@@ -13,9 +11,18 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 
      <form role="form" method='get' action='router1.php'>
       <div class="form-group">
-          <h3>Ajout d'un evenement</h3>
+          <h3>Ajout d'une union </h3>
         <input type="hidden" name='action' value='individuReadAll'>
-        <label for="nom">selectionnez un individu: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+        <label for="nom">selectionnez un homme: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+            <?php
+            foreach ($results as $iid) {
+             echo ("<option>$iid</option>");
+            }
+            ?>
+        </select><br>
+        
+        <input type="hidden" name='action' value='individuReadAll'>
+        <label for="nom">selectionnez un femme: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
             <?php
             foreach ($results as $iid) {
              echo ("<option>$iid</option>");
@@ -23,10 +30,13 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
             ?>
         </select><br>
 
-        <label for="nom">selectionnez un type d'evenement: </label><br> 
+        <label for="nom">selectionnez un type d'union: </label><br> 
         <select class="form-control" id='nom' name='event_type' style="width: 100px">
-           <option value="Naissance">Naissance</option>
-           <option value="Deces" selected>Deces</option>
+           <option value="Naissance">Couple</option>
+           <option value="Deces" selected>Divorce</option>
+           <option value="Naissance">Separation</option>
+           <option value="Naissance">Pacs</option><!-- comment -->
+           <option value="Naissance">Mariage</option>
         </select><br>
         
         <label>Date(AAAA-MM-JJ)?  </label><br>

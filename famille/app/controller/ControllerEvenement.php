@@ -1,85 +1,45 @@
 <?php
-require_once '../model/ModelProducteur.php';
+require_once '../model/ModelEvenement.php';
+session_start();
 
 
-class ControllerProducteur {
-    
- // --- Liste des producteurs
- public static function producteurReadAll() {
-  $results = ModelProducteur::getAll();
-  
-  // ----- Construction chemin de la vue
-  include 'config.php';
-  $vue = $root . '/app/view/producteur/viewAll.php';
-  if (DEBUG)
-   echo ("ControllerProducteur : producteurReadAll : vue = $vue");
-  require ($vue);
- }
- 
- // --- Liste des producteurs
- public static function producteurNombreRegion() {
-  $results = ModelProducteur::getNombreRegion();
-  
-  // ----- Construction chemin de la vue
-  include 'config.php';
-  $vue = $root . '/app/view/producteur/viewNombre.php';
-  if (DEBUG)
-   echo ("ControllerProducteur : producteurNombreRegion : vue = $vue");
-  require ($vue);
- }
- 
- // --- Liste des regions
- public static function producteurReadRegion() {
-  $results = ModelProducteur::getAllRegion();
-  
-  // ----- Construction chemin de la vue
-  include 'config.php';
-  $vue = $root . '/app/view/producteur/viewRegion.php';
-  if (DEBUG)
-   echo ("ControllerProducteur : producteurReadRegion : vue = $vue");
-  require ($vue);
- }
- 
- // Affiche un formulaire pour sélectionner un id qui existe
- public static function producteurReadId() {
-  $results = ModelProducteur::getAllId();
+class ControllerEvenement {
+     // Affiche un formulaire pour sélectionner un nom qui existe
+     public static function evenementReadNom() {
+  $results = ModelEvenement::getAllNom();
 
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/producteur/viewId.php';
+  $vue = $root . '/app/view/evenement/viewNom.php';
   require ($vue);
  }
  
- // Affiche un producteur particulier (id)
- public static function producteurReadOne() {
-  $producteur_id = $_GET['id'];
-  $results = ModelProducteur::getOne($producteur_id);
-
+  // sauve le nom en variable de session
+ public static function evenementReadOne() {
+  $famille_nom = $_GET['nom'];
+  $_SESSION["nom"] = $famille_nom;
+$results = ModelEvenement::getOneNom( htmlspecialchars($_GET['nom']));
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/producteur/viewAll.php';
+  $vue = $root . '/app/view/evenement/viewEvent.php';
   require ($vue);
  }
- 
- // Affiche le formulaire de creation d'un producteur
- public static function producteurCreate() {
+  public static function evenementCreate() {
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/producteur/viewInsert.php';
+  $vue = $root . '/app/view/evenement/viewInsert.php';
   require ($vue);
  }
- 
- // Affiche un formulaire pour récupérer les informations d'un nouveau producteur.
- // La clé est gérée par le systeme et pas par l'internaute
- public static function producteurCreated() {
+  public static function evenementCreated() {
   // ajouter une validation des informations du formulaire
-  $results = ModelProducteur::insert(
-      htmlspecialchars($_GET['nom']), htmlspecialchars($_GET['prenom']), htmlspecialchars($_GET['region'])
+  $results = ModelFamille::insert(
+      htmlspecialchars($_GET['event_type'],$GET['event_date'],$GET['event_lieu'])
   );
   // ----- Construction chemin de la vue
   include 'config.php';
-  $vue = $root . '/app/view/producteur/viewInserted.php';
+  $vue = $root . '/app/view/evenement/viewInserted.php';
   require ($vue);
  }
-    
+ 
+ 
 }

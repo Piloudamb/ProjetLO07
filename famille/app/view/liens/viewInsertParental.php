@@ -1,5 +1,3 @@
-<!-- ----- début viewInsert -->
- <!-- creation de formulaire de rajout d'un evenement-->
 <?php 
 require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 ?>
@@ -13,9 +11,9 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 
      <form role="form" method='get' action='router1.php'>
       <div class="form-group">
-          <h3>Ajout d'un evenement</h3>
+          <h3>Ajout d'un lien parentalet</h3>
         <input type="hidden" name='action' value='individuReadAll'>
-        <label for="nom">selectionnez un individu: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+        <label for="nom">selectionnez un enfant: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
             <?php
             foreach ($results as $iid) {
              echo ("<option>$iid</option>");
@@ -23,17 +21,14 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
             ?>
         </select><br>
 
-        <label for="nom">selectionnez un type d'evenement: </label><br> 
-        <select class="form-control" id='nom' name='event_type' style="width: 100px">
-           <option value="Naissance">Naissance</option>
-           <option value="Deces" selected>Deces</option>
+       <input type="hidden" name='action' value='individuReadAll'>
+        <label for="nom">selectionnez un parent: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+            <?php
+            foreach ($results as $iid) {
+             echo ("<option>$iid</option>");
+            }
+            ?>
         </select><br>
-        
-        <label>Date(AAAA-MM-JJ)?  </label><br>
-            <input type="event_date" name="event_date" required pattern="\d{4}-\d{2}-\d{2}"><br>
-            
-         <label>Lieu?  </label><br>
-            <input type='text' name='event_lieu'>
        
       </div>
       <p/>

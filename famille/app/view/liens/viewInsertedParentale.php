@@ -1,5 +1,3 @@
-
-<!-- ----- début viewInserted -->
 <?php
 require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 ?>
@@ -13,14 +11,12 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
     <!-- ===================================================== -->
     <?php
     if ($results) {
-     echo ("<h3>La nouvelle famille a été ajoutée </h3>");
-     echo("<ul>");
-     echo ("<li>id = " . $results . "</li>");
-     echo ("<li>nom = " . $_GET['nom'] . "</li>");
-     echo("</ul>");
+     echo ("<h3>Le nouveau lien a été ajoutée </h3>");
+    
     } else {
-     echo ("<h3>Problème d'insertion de la Famille</h3>");
-     echo ("id = " . $_GET['nom']);
+     echo ("<h3>Problème d'insertion de lien </h3>");
+    
+     
     }
 
     echo("</div>");
@@ -29,5 +25,3 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
     ?>
     <!-- ----- fin viewInserted -->    
 
-    
-    
