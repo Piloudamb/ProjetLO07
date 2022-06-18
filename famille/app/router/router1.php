@@ -17,29 +17,31 @@ $action = htmlspecialchars($param["action"]);
 
 // --- Liste des méthodes autorisées
 switch ($action) {
- case "familleReadAll" :
- case "familleReadOne" :
- case "familleReadNom" :
- case "familleCreate" :
- case "familleCreated" :
-  ControllerFamille::$action();
-  break;
+    case "familleReadAll" :
+    case "familleReadOne" :
+    case "familleReadNom" :
+    case "familleCreate" :
+    case "familleCreated" :
+        ControllerFamille::$action();
+        break;
 
- case "individuReadAll" :
- case "individuCreate" :
- case "individuCreated" :
-  ControllerIndividu::$action();
-  break;
- case "evenementReadNom":
- case "evenementReadOne" : 
- case "evenementCreate" :
- case "evenementCreated":
- case "individuReadAll":
-       ControllerEvenement::$action();
-     break;
- default:
-  $action = "caveAccueil";
-  ControllerFamille::$action();
+    case "individuReadAll" :
+    case "individuCreate" :
+    case "individuCreated" :
+    case "individuReadName" :
+    case "individuReadOne" :
+        ControllerIndividu::$action();
+        break;
+    case "evenementReadNom":
+    case "evenementReadOne" :
+    case "evenementCreate" :
+    case "evenementCreated":
+        //case "individuReadAll":
+        ControllerEvenement::$action();
+        break;
+    default:
+        $action = "caveAccueil";
+        ControllerFamille::$action();
 }
 /* case "mesPropositions" :
   ControllerCave::$action();
