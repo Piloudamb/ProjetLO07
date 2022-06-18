@@ -95,7 +95,7 @@ class ModelEvenement {
    return NULL;
   }
  }
-  public static function insert($event_type,$event_lieu) {
+  public static function insert($event_type,$event_date, $event_lieu) {
   try {
    $database = Model::getInstance();
 
@@ -122,6 +122,21 @@ class ModelEvenement {
    return -1;
   }
  }
+ 
+ //liste des individu
+  public static function getAll() {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from individu ";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+            return $results;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
  
  
 }

@@ -33,8 +33,9 @@ switch ($action) {
   break;
  case "evenementReadNom":
  case "evenementReadOne" : 
- case "evenementcreate" :
- case "evenementcreated":
+ case "evenementCreate" :
+ case "evenementCreated":
+ case "individuReadAll":
        ControllerEvenement::$action();
      break;
  default:

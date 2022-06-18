@@ -1,5 +1,6 @@
 <?php
 require_once '../model/ModelEvenement.php';
+
 session_start();
 
 
@@ -24,7 +25,18 @@ $results = ModelEvenement::getOneNom( htmlspecialchars($_GET['nom']));
   $vue = $root . '/app/view/evenement/viewEvent.php';
   require ($vue);
  }
+ //liste des individu
+ public static function individuReadAll() {
+        $results = ModelEvenement::getAll();
+        // ----- Construction chemin de la vue
+      include 'config.php';
+  $vue = $root . '/app/view/evenement/viewInsert.php';
+  require ($vue);
+       
+    }
+ 
   public static function evenementCreate() {
+     
   // ----- Construction chemin de la vue
   include 'config.php';
   $vue = $root . '/app/view/evenement/viewInsert.php';
@@ -32,7 +44,7 @@ $results = ModelEvenement::getOneNom( htmlspecialchars($_GET['nom']));
  }
   public static function evenementCreated() {
   // ajouter une validation des informations du formulaire
-  $results = ModelFamille::insert(
+  $results = ModelEvenement::insert(
       htmlspecialchars($_GET['event_type'],$GET['event_date'],$GET['event_lieu'])
   );
   // ----- Construction chemin de la vue

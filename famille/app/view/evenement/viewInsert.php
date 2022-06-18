@@ -14,11 +14,13 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      <form role="form" method='get' action='router1.php'>
       <div class="form-group">
           <h3>Ajout d'un evenement</h3>
-        <input type="hidden" name='action' value='individuReadAll'>
-        <label for="nom">selectionnez un individu: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+        <input type="hidden" name='action' value='evenementCreated'>
+         
+        <label for="nom">selectionnez un individu: </label><br> 
+        <select class="form-control" id='idd' value='individuReadAll' name='action' style="width: 100px">
             <?php
-            foreach ($results as $iid) {
-             echo ("<option>$iid</option>");
+            foreach ($results as $individu) {
+             echo ("<option>{$individu->getNom()}</option>");
             }
             ?>
         </select><br>

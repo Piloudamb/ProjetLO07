@@ -24,7 +24,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      echo("</ul>");
     } else {
      echo ("<h3>Problème d'insertion d'evenement</h3>");
-     echo ("id = " . $_GET['nom']);
+     echo ("idd = " . $_GET['iid']);
     }
 
     echo("</div>");
