@@ -36,23 +36,10 @@ class ModelFamille {
  public static function getAllNom() {
   try {
    $database = Model::getInstance();
-   $query = "select nom from famille";
+   $query = "select * from famille";
    $statement = $database->prepare($query);
    $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
-   return $results;
-  } catch (PDOException $e) {
-   printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
-   return NULL;
-  }
- }
-
- public static function getMany($query) {
-  try {
-   $database = Model::getInstance();
-   $statement = $database->prepare($query);
-   $statement->execute();
-   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelVin");
+   $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelFamille");
    return $results;
   } catch (PDOException $e) {
    printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());

@@ -5,7 +5,6 @@ require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerIndividu.php');
 require ('../controller/ControllerEvenement.php');
 
-
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
 
@@ -43,13 +42,13 @@ switch ($action) {
   ControllerFamille::$action();
 }
 /* case "mesPropositions" :
-  ControllerCave::$action(); 
+  ControllerCave::$action();
   break;
 
- // Tache par défaut
- default:
+  // Tache par défaut
+  default:
   $action = "caveAccueil";
   ControllerFamille::$action();
-}*/
+  } */
 ?>
 <!-- ----- Fin Router1 -->

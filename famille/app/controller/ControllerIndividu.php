@@ -37,7 +37,7 @@ class ControllerIndividu {
         require ($vue);
     }
 
-    // Affiche un formulaire pour sélectionner un nom qui existe
+    // Affiche un formulaire pour sélectionner un individu
     public static function individuReadName() {
         $results = ModelIndividu::getAllNom();
 
@@ -46,17 +46,19 @@ class ControllerIndividu {
         $vue = $root . '/app/view/individu/viewNom.php';
         require ($vue);
     }
-    
+
     public static function individuReadOne() {
         $get = $_GET['individu'];
-        $get_array = explode(" : ", $get);
-        $nom = $get_array[0];
-        $prenom = $get_array[1];
-
+        $get_array = explode("|", $get);
+        $id = $get_array[0];
+        $famille_id = $get_array[1];
+        $results = ModelIndividu::getPage($id, $famille_id);
+           
         // ----- Construction chemin de la vue
         include 'config.php';
         $vue = $root . '/app/view/individu/viewIndividuPage.php';
         require ($vue);
+        return $results;
     }
 
 }
