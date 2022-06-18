@@ -19,7 +19,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
                 <label for="id">prenom : <input type="text" name="prenom" value=""></label>
                 <p style="font-weight: bold">sexe :</p>
                 <label class="radio-inline">
-                    <input type="radio" name="sexe" id="inlineRadio1" value="M"/>Masculin   
+                    <input type="radio" name="sexe" id="inlineRadio1" value="H"/>Masculin   
                 </label>
                 <label class="radio-inline">
                     <input type="radio" name="sexe" id="inlineRadio2" value="F"/>Féminin   

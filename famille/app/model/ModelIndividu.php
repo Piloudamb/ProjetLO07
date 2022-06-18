@@ -164,7 +164,7 @@ class ModelIndividu {
             $response3 = $statement3->fetch();
             $date2 = $response3['4'];
             $place2 = $response3['5'];
-            
+
             //récupérer les parents
             //pere
             $query4 = "select * from individu where id={$individu->getPere()} and famille_id=$famille_id";
@@ -172,15 +172,41 @@ class ModelIndividu {
             $statement4->execute();
             $response4 = $statement4->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
             $pere = $response4[0];
-            
+
             //mere
             $query5 = "select * from individu where id={$individu->getMere()} and famille_id=$famille_id";
             $statement5 = $database->prepare($query5);
             $statement5->execute();
             $response5 = $statement5->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
             $mere = $response5[0];
-            
-            
+
+            //information union
+            //on vérifie le sexe
+            if ($individu->getSexe() == "H") {
+                $query6 = "select i.famille_id, i.id, i.nom, i.prenom, i.sexe, i.pere, i.mere from individu as i, lien as l where (lien_type='MARIAGE' or lien_type='COUPLE') and l.famille_id=$famille_id and l.iid1=$id and i.famille_id=l.famille_id and i.id=l.iid2";
+            } else {
+                $query6 = "select i.famille_id, i.id, i.nom, i.prenom, i.sexe, i.pere, i.mere from individu as i, lien as l where (lien_type='MARIAGE' or lien_type='COUPLE') and l.famille_id=$famille_id and l.iid2=$id and i.famille_id=l.famille_id and i.id=l.iid1";
+            }
+
+            $statement6 = $database->prepare($query6);
+            $statement6->execute();
+            $conquetes = $statement6->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+
+            //information enfants
+            $unions = array();
+            foreach ($conquetes as $elem) {
+                if ($elem->getSexe() == "F") {
+                    $query7 = "select * from individu where famille_id=$famille_id and pere=$id and mere={$elem->getId()}";
+                } else {
+                    $query7 = "select * from individu where famille_id=$famille_id and mere=$id and pere={$elem->getId()}";
+                }
+                $statement7 = $database->prepare($query7);
+                $statement7->execute();
+                $enfants = $statement7->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+                $famille = array($elem, $enfants);
+                array_push($unions, $famille);
+            }
+
             $results = array(
                 "individu" => $individu,
                 "date_naissance" => $date,
@@ -189,6 +215,7 @@ class ModelIndividu {
                 "place_deces" => $place2,
                 "pere" => $pere,
                 "mere" => $mere,
+                "unions" => $unions,
             );
             return $results;
         } catch (PDOException $e) {

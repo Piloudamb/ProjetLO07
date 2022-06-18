@@ -37,7 +37,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         . "{$results['pere']->getNom()} {$results['pere']->getPrenom()}"
         . "</a>"
         . "</li>");
-        
+
         echo(
         "<li>Mère "
         . "<a href='router1.php?action=individuReadOne&individu={$results['mere']->getId()}|{$results['mere']->getFamille_id()}'>"
@@ -45,10 +45,34 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         . "</a>"
         . "</li>");
         echo("</ul>");
-        
+
         //information unions et enfants
         echo("<h3>Unions et enfants</h3>");
         echo("<ul>");
+        foreach ($results['unions'] as $elem) {
+            $conquete = $elem[0];
+            $enfants = $elem[1];
+
+            //affichage mari/femme
+            echo(
+            "<li>Union avec "
+            . "<a href='router1.php?action=individuReadOne&individu={$conquete->getId()}|{$conquete->getFamille_id()}'>"
+            . "{$conquete->getNom()} {$conquete->getPrenom()}"
+            . "</a>"
+            . "</li>");
+
+            //affichage enfant
+            echo("<ol>");
+            foreach ($enfants as $enf) {
+                echo(
+                "<li> Enfant "
+                . "<a href='router1.php?action=individuReadOne&individu={$enf->getId()}|{$enf->getFamille_id()}'>"
+                . "{$enf->getNom()} {$enf->getPrenom()}"
+                . "</a>"
+                . "</li>");
+            }
+            echo("</ol>");
+        }
         echo("</ul>");
         ?>
 
