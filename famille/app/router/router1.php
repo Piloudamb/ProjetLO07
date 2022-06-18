@@ -5,7 +5,6 @@ require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerIndividu.php');
 require ('../controller/ControllerEvenement.php');
 
-
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
 
@@ -18,37 +17,39 @@ $action = htmlspecialchars($param["action"]);
 
 // --- Liste des méthodes autorisées
 switch ($action) {
- case "familleReadAll" :
- case "familleReadOne" :
- case "familleReadNom" :
- case "familleCreate" :
- case "familleCreated" :
-  ControllerFamille::$action();
-  break;
+    case "familleReadAll" :
+    case "familleReadOne" :
+    case "familleReadNom" :
+    case "familleCreate" :
+    case "familleCreated" :
+        ControllerFamille::$action();
+        break;
 
- case "individuReadAll" :
- case "individuCreate" :
- case "individuCreated" :
-  ControllerIndividu::$action();
-  break;
- case "evenementReadNom":
- case "evenementReadOne" : 
- case "evenementcreate" :
- case "evenementcreated":
-       ControllerEvenement::$action();
-     break;
- default:
-  $action = "caveAccueil";
-  ControllerFamille::$action();
+    case "individuReadAll" :
+    case "individuCreate" :
+    case "individuCreated" :
+    case "individuReadName" :
+    case "individuReadOne" :
+        ControllerIndividu::$action();
+        break;
+    case "evenementReadNom":
+    case "evenementReadOne" :
+    case "evenementcreate" :
+    case "evenementcreated":
+        ControllerEvenement::$action();
+        break;
+    default:
+        $action = "caveAccueil";
+        ControllerFamille::$action();
 }
 /* case "mesPropositions" :
-  ControllerCave::$action(); 
+  ControllerCave::$action();
   break;
 
- // Tache par défaut
- default:
+  // Tache par défaut
+  default:
   $action = "caveAccueil";
   ControllerFamille::$action();
-}*/
+  } */
 ?>
 <!-- ----- Fin Router1 -->

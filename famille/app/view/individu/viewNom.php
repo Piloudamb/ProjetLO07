@@ -15,10 +15,13 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
                 <input type="hidden" name='action' value='individuReadOne'>
-                <label for="nom">individu : </label> <select class="form-control" id='individu' name='individu'>
+                <label for="nom">individu : </label> 
+                <select class="form-control" id="individu" name="individu">
                     <?php
-                    foreach ($results as $row) {
-                        echo ("<option>{$row['nom']} : {$row['prenom']}</option>");
+                    foreach ($results as $element) {
+                        echo ("<option value='{$element->getId()}|{$element->getFamille_id()}'>"
+                        . "{$element->getNom()} : {$element->getPrenom()}"
+                        . "</option>");
                     }
                     ?>
                 </select>
