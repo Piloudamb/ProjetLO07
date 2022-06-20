@@ -15,7 +15,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      echo ("<h3>Confirmation de la creation d'un evenement </h3>");
      echo("<ul>");
      //echo ("<li>id = " . $results . "</li>");
-     echo  "<a href='router1.php?action=evenementCreated&individu={$results['individu']->getFamille_id()}|{$results['individu']->getIid()}'>";
+     echo  "<a href='router1.php?action=evenementCreated&individu={$results->getId()}'>";
      echo ("<li>Famille_id = " . $_GET['famille_id'] . "</li>");
      echo ("<li>Individu_id = " . $_GET['iid'] . "</li>");
      echo ("<li>Event_type = " . $_GET['event_type'] . "</li>");
@@ -24,7 +24,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      echo("</ul>");
     } else {
      echo ("<h3>Problème d'insertion d'evenement</h3>");
-     echo ("idd = " . $_GET['iid']);
+     echo ("idd = " . $_GET['individu']);
     }
 
     echo("</div>");

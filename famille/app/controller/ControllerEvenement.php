@@ -19,7 +19,7 @@ class ControllerEvenement {
  public static function evenementReadOne() {
   $famille_nom = $_GET['nom'];
   $_SESSION["nom"] = $famille_nom;
-$results = ModelEvenement::getOneNom( htmlspecialchars($_GET['nom']));
+$results = ModelEvenement::getOneNom(htmlspecialchars($_GET['nom']));
   // ----- Construction chemin de la vue
   include 'config.php';
   $vue = $root . '/app/view/evenement/viewEvent.php';
@@ -48,7 +48,7 @@ $results = ModelEvenement::getOneNom( htmlspecialchars($_GET['nom']));
        $get_array = explode("|", $_GET['individu']);
        $famille_id = $get_array[0];
        $iid = $get_array[1];
-       $results = ModelEvenement::insert($famille_id,$iid,htmlspecialchars($_GET['event_type'],$GET['event_date'],$GET['event_lieu'])
+       $results = ModelEvenement::insert($famille_id, $iid ,htmlspecialchars($_GET['event_type']), htmlspecialchars($_GET['event_date']), htmlspecialchars($_GET['event_lieu'])
   );
   // ----- Construction chemin de la vue
   include 'config.php';
