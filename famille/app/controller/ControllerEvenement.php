@@ -1,3 +1,4 @@
+<!-- ----- debut ControllerFamille -->
 <?php
 require_once '../model/ModelEvenement.php';
 require_once '../model/ModelIndividu.php';
@@ -57,4 +58,5 @@ $results = ModelEvenement::getOneNom(htmlspecialchars($_GET['nom']));
  }
  
  
-}
+}?>
+<!-- ----- debut ControllerEvenement -->

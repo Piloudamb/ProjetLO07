@@ -1,3 +1,5 @@
+<!-- ----- debut ModelIndividu -->
+
 <?php
 
 require_once 'Model.php';
@@ -101,7 +103,7 @@ class ModelLien {
             $famille_id = $tuple['0'];
             $famille_id++;
             
-            if ($sexe = "M") {
+            if ($sexe == "H") {
                 $query = "update individu set pere= :iid2 where id= :iid1 and famille_id= :famille_id_parents ";
             } else {
                 $query = "update individu set mere= :iid2  where id= :iid1 and famille_id= :famille_id_parents ";
@@ -122,16 +124,11 @@ class ModelLien {
         }
     }
 
-    public static function insert($iid1, $iid2, $lien_type, $lien_date, $lien_lieu) {
+    public static function insert($famille_id, $iid1, $iid2, $lien_type, $lien_date, $lien_lieu) {
         try {
             $database = Model::getInstance();
 
-            // recherche de la valeur de la clé = max(id) + 1
-            $query = "select max(famille_id) from lien";
-            $statement = $database->query($query);
-            $tuple = $statement->fetch();
-            $famille_id = $tuple['0'];
-            $famille_id++;
+           
 
             $query = "select max(id) from lien";
             $statement = $database->query($query);
@@ -161,3 +158,5 @@ class ModelLien {
     }
 
 }
+?>
+<!-- ----- Fin ModelIndividu -->

@@ -7,7 +7,7 @@ require_once '../model/ModelFamille.php';
 class ControllerFamille {
 
     // --- page d'acceuil
-    public static function caveAccueil() {
+    public static function familleAccueil() {
         include 'config.php';
         $vue = $root . '/app/view/viewGenealogieAccueil.php';
         if (DEBUG)

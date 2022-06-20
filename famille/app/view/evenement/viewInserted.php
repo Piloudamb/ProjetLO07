@@ -27,5 +27,6 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      echo ("<h3>Problème d'insertion d'evenement</h3>");
      echo ("idd = " . $_GET['individu']);
     }
-
+    ?>
+<!-- ----- Fin ViewInserted -->
 

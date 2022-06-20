@@ -49,17 +49,9 @@ switch ($action) {
         break;
    
     default:
-        $action = "caveAccueil";
+        $action = "familleAccueil";
         ControllerFamille::$action();
 }
-/* case "mesPropositions" :
-  ControllerCave::$action();
-  break;
 
-  // Tache par défaut
-  default:
-  $action = "caveAccueil";
-  ControllerFamille::$action();
-  } */
 ?>
 <!-- ----- Fin Router1 -->

@@ -1,3 +1,5 @@
+
+<!-- ----- debut ViewEvent -->
 <?php
 require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 ?>
@@ -31,3 +33,4 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
     </table>
   </div>
   <?php include $root . '/app/view/fragment/fragmentGenealogieFooter.html'; ?>
+<!-- ----- debut viewEvent -->
