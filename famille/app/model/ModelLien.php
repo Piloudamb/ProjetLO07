@@ -91,21 +91,31 @@ class ModelLien {
         }
     }
 
-    public static function update($iid, $sexe) {
+    public static function update ($iid1,$iid2,$sexe, $famille_id_parents) {
         try {
             $database = Model::getInstance();
             // mis a jour d'un nouveau tuple;
+             $query = "select max(id) from individu";
+            $statement = $database->query($query);
+            $tuple = $statement->fetch();
+            $famille_id = $tuple['0'];
+            $famille_id++;
+            
             if ($sexe = "M") {
-                $query = "update individu set pere='1' where iid= :iid";
+                $query = "update individu set pere= :iid2 where id= :iid1 and famille_id= :famille_id_parents ";
             } else {
-                $query = "update individu set mere='1' where iid= :iid";
+                $query = "update individu set mere= :iid2  where id= :iid1 and famille_id= :famille_id_parents ";
             }
 
             $statement = $database->prepare($query);
             $statement->execute([
-                'iid' => $iid,
+                'iid1'=>$iid1,
+                'iid2'=>$iid2,
+                'famille_id_parents'=> $famille_id_parents,
+               
             ]);
-            return $id;
+             $results = array("iid1" => $iid1, "iid2" => $iid2, "famille_id_parents" => $famille_id_parents);
+             return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;
@@ -141,7 +151,9 @@ class ModelLien {
                     'lien_date'=>$lien_date,
                     'lien_lieu'=>$lien_lieu,
             ]);
-            return $id;
+            $results= array("famille_id" => $famille_id, "id" => $id,'iid1' => $iid1,'iid2' => $iid2 );
+            return $results;
+            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;

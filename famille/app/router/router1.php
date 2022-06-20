@@ -45,7 +45,8 @@ switch ($action) {
     case "LienParentalCreated":
     case "LienUnionCreate":
     case "LienUnionCreated":
-        ControllerLien:: $action();
+        ControllerLien::$action();
+        break;
    
     default:
         $action = "caveAccueil";

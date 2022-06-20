@@ -15,10 +15,10 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      echo ("<h3>Confirmation de la creation d'un lien parentale </h3>");
      echo("<ul>");
      //echo ("<li>id = " . $results . "</li>");
-     echo  "<a href='router1.php?action=lienParentalCreated&individu={$results['individu']->getFamille_id()}|{$results['individu']->getIid1()}|{$results['individu']->getIid2()}|{$results['individu']->getSexe()}'>";
-     echo ("<li>Famille_id = " . $_GET['famille_id'] . "</li>");
-     echo ("<li>Individu_id1 = " . $_GET['iid'] . "</li>");
-     echo ("<li>Individu_id2" . $_GET['iid'] . "</li>");
+    
+     echo ("<li>Famille_id = " . $results['famille_id_parents'] . "</li>");
+     echo ("<li>Individu_id1 = " . $results['iid1'] . "</li>");
+     echo ("<li>Individu_id2=" . $results['iid2'] . "</li>");
      
      echo("</ul>");
     } else {
