@@ -9,7 +9,7 @@ class ControllerLien {
     // --- Liste des liens
     public static function lienReadAll() {
         $results = ModelLien::getAllLien();
-        // ----- Construction chemin de la vue
+        // ----- Construction chemin de la vue 
         include 'config.php';
         $vue = $root . '/app/view/liens/viewAll.php';
         if (DEBUG)

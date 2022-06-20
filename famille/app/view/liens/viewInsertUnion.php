@@ -13,37 +13,39 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
       <div class="form-group">
           <h3>Ajout d'une union </h3>
         <input type="hidden" name='action' value='LienUnionCreated'>
-        <label for="nom">selectionnez un homme: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+        <label for="nom">selectionnez un homme: </label><br> <select class="form-control" id='idd' name='individu1' style="width: 100px">
           <?php
-            foreach ($results as $individu) {
-             echo ("<option>{$individu->getNom()}</option>");
+            foreach ($results as $individu1) {
+             echo ("<option  value='{$individu1->getId()}'>"
+             . "{$individu1->getNom()}:{$individu1->getPrenom()}</option>");
             }
             ?>
         </select><br>
         
      
-        <label for="nom">selectionnez un femme: </label><br> <select class="form-control" id='idd' name='idd' style="width: 100px">
+        <label for="nom">selectionnez un femme: </label><br> <select class="form-control" id='idd' name='individu2' style="width: 100px">
             <?php
-            foreach ($results as $individu) {
-             echo ("<option>{$individu->getNom()}</option>");
+            foreach ($results as $individu2) {
+             echo ("<option value='{$individu2->getId()}'>"
+                     . "{$individu2->getNom()}:{$individu2->getPrenom()}</option>");
             }
             ?>
         </select><br>
 
         <label for="nom">selectionnez un type d'union: </label><br> 
-        <select class="form-control" id='nom' name='event_type' style="width: 100px">
-           <option value="Naissance">Couple</option>
-           <option value="Deces" selected>Divorce</option>
-           <option value="Naissance">Separation</option>
-           <option value="Naissance">Pacs</option><!-- comment -->
-           <option value="Naissance">Mariage</option>
+        <select class="form-control" id='nom' name='lien_type' style="width: 100px">
+           <option value="Couple">Couple</option>
+           <option value="Divorce" selected>Divorce</option>
+           <option value="Separation">Separation</option>
+           <option value="Pacs">Pacs</option><!-- comment -->
+           <option value="Mariage">Mariage</option>
         </select><br>
         
         <label>Date(AAAA-MM-JJ)?  </label><br>
-            <input type="event_date" name="event_date" required pattern="\d{4}-\d{2}-\d{2}"><br>
+            <input type="event_date" name="lien_date" required pattern="\d{4}-\d{2}-\d{2}"><br>
             
          <label>Lieu?  </label><br>
-            <input type='text' name='event_lieu'>
+            <input type='text' name='lien_lieu'>
        
       </div>
       <p/>
