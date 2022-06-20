@@ -15,8 +15,6 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         if ($results) {
             echo ("<h3>Le nouvel individu a été ajouté </h3>");
             echo("<ul>");
-            //echo ("<li>id = " . $_GET['famille_id'] . "</li>");
-
             echo ("<li>id = " . $results['id'] . "</li>");
             echo ("<li>famille_id = " . $results['famille_id'] . "</li>");
             echo ("<li>nom = " . $_GET['nom'] . "</li>");
@@ -31,6 +29,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         echo("</div>");
         include $root . '/app/view/fragment/fragmentGenealogieFooter.html';
         ?>
+    </div>
         <!-- ----- fin viewInserted -->    
 
 
