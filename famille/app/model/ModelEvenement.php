@@ -1,3 +1,4 @@
+<!-- ----- debut ModelEvenement -->
 <?php
 
 require_once 'Model.php';
@@ -67,7 +68,7 @@ class ModelEvenement {
       $this->event_lieu = $event_lieu;
       }
      */
-
+//tous les noms des familles dans la base
     public static function getAllNom() {
         try {
             $database = Model::getInstance();
@@ -81,7 +82,7 @@ class ModelEvenement {
             return NULL;
         }
     }
-
+//afficher les evenement par famille que le nom etait deja donne par l'utilisateur
     public static function getOneNom($nom) {
         try {
             $database = Model::getInstance();
@@ -97,7 +98,7 @@ class ModelEvenement {
             return NULL;
         }
     }
-
+//inserer un nouveau evenement 
     public static function insert($famille_id, $iid, $event_type, $event_date, $event_lieu) {
         try {
             $database = Model::getInstance();
@@ -144,3 +145,5 @@ class ModelEvenement {
     }
 
 }
+?>
+<!-- ----- debut ModelEvenemet -->

@@ -26,7 +26,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         <label for="nom">selectionnez un parent: </label><br> <select class="form-control" id='individu' name='individu2' style="width: 100px">
             <?php
             foreach ($results as $individu2) {
-             echo ("<option  value='{$individu2 ->getFamille_id()}|{$individu2->getId()}||{$individu2->getSexe()}'>"
+             echo ("<option  value='{$individu2 ->getFamille_id()}|{$individu2->getId()}|{$individu2->getSexe()}'>"
              . "{$individu2->getNom()}:{$individu2->getPrenom()}</option>");
             }
             ?>

@@ -137,7 +137,35 @@ class ModelIndividu {
             return NULL;
         }
     }
-
+        // retourne une liste des noms et prenoms des femmes
+  public static function getAllNomFemme() {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from individu where sexe='F' ";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $resultsfemme = $statement->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+            return $resultsfemme;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+        // retourne une liste des noms et prénoms des hommes
+     public static function getAllNomHomme() {
+        try {
+            $database = Model::getInstance();
+            $query = "select * from individu where sexe='H' ";
+            $statement = $database->prepare($query);
+            $statement->execute();
+            $resultshomme = $statement->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+            return $resultshomme;
+        } catch (PDOException $e) {
+            printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
+            return NULL;
+        }
+    }
+    
     public static function getPage($id, $famille_id) {
         try {
             $database = Model::getInstance();
@@ -226,4 +254,4 @@ class ModelIndividu {
 
 }
 ?>
-<!-- ----- fin ModelVin -->
+<!-- ----- fin ModelIndividu -->

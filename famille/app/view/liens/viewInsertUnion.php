@@ -15,8 +15,8 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         <input type="hidden" name='action' value='LienUnionCreated'>
         <label for="nom">selectionnez un homme: </label><br> <select class="form-control" id='idd' name='individu1' style="width: 100px">
           <?php
-            foreach ($results as $individu1) {
-             echo ("<option  value='{$individu1->getId()}'>"
+            foreach ($resultshomme as $individu1) {
+             echo ("<option  value='{$individu1->getId()}|{$individu1->getFamille_id()}'>"
              . "{$individu1->getNom()}:{$individu1->getPrenom()}</option>");
             }
             ?>
@@ -25,7 +25,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
      
         <label for="nom">selectionnez un femme: </label><br> <select class="form-control" id='idd' name='individu2' style="width: 100px">
             <?php
-            foreach ($results as $individu2) {
+            foreach ($resultsfemme as $individu2) {
              echo ("<option value='{$individu2->getId()}'>"
                      . "{$individu2->getNom()}:{$individu2->getPrenom()}</option>");
             }
