@@ -19,7 +19,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
             <?php
             foreach ($results as $individu) {
              echo ("<option value='{$individu ->getFamille_id()}|{$individu->getId()}'>"
-             . "{$individu->getNom()}</option>");
+             . "{$individu->getNom()} :{$individu->getPrenom()} </option>");
             }
             ?>
         </select><br>
