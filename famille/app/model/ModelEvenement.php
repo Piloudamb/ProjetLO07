@@ -95,7 +95,8 @@ class ModelEvenement {
    return NULL;
   }
  }
-  public static function insert($event_type,$event_date, $event_lieu) {
+ 
+  public static function insert($famille_id,$iid,$event_type,$event_date, $event_lieu) {
   try {
    $database = Model::getInstance();
 
@@ -107,14 +108,15 @@ class ModelEvenement {
    $id++;
 
    // ajout d'un nouveau tuple;
-   $query = "insert into evenement value (famille_id,idd , :id, :event_type, :event_date, :event_lieu)";
+   $query = "insert into evenement (famille_id,id,iid,event_type,event_date,event_lieu)values(:famille_id, :idd , :id, :event_type, :event_date, :event_lieu)";
    $statement = $database->prepare($query);
    $statement->execute([
+     'famille_id'=>$famille_id,
      'id' => $id,
+      'iid'=>$iid,
      'event_type' => $event_type,
      'event_date'=>$event_date,
      'event_lieu'=> $event_lieu
-     
    ]);
    return $id;
   } catch (PDOException $e) {

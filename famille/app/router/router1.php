@@ -4,6 +4,7 @@
 require ('../controller/ControllerFamille.php');
 require ('../controller/ControllerIndividu.php');
 require ('../controller/ControllerEvenement.php');
+require ('../controller/ControllerLien.php');
 
 // --- récupération de l'action passée dans l'URL
 $query_string = $_SERVER['QUERY_STRING'];
@@ -35,10 +36,17 @@ switch ($action) {
     case "evenementReadNom":
     case "evenementReadOne" :
     case "evenementCreate" :
-    case "evenementCreated":
-        //case "individuReadAll":
+    case "evenementCreated":  
+    case "individuReadAll":
         ControllerEvenement::$action();
         break;
+    case "lienReadAll":
+    case "LienParentalCreate":
+    case "LienParentalCreated":
+    case "LienUnionCreate":
+    case "LienUnionCreated":
+        ControllerLien:: $action();
+   
     default:
         $action = "caveAccueil";
         ControllerFamille::$action();

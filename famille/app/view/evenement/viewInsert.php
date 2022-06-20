@@ -1,5 +1,3 @@
-<!-- ----- début viewInsert -->
- <!-- creation de formulaire de rajout d'un evenement-->
 <?php 
 require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 ?>
@@ -17,10 +15,11 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         <input type="hidden" name='action' value='evenementCreated'>
          
         <label for="nom">selectionnez un individu: </label><br> 
-        <select class="form-control" id='idd' value='individuReadAll' name='action' style="width: 100px">
+        <select class="form-control" id='individu'  name='individu' style="width: 100px">
             <?php
             foreach ($results as $individu) {
-             echo ("<option>{$individu->getNom()}</option>");
+             echo ("<option value='{$individu ->getFamille_id()}|{$individu->getId()}'>"
+             . "{$individu->getNom()}</option>");
             }
             ?>
         </select><br>
@@ -44,5 +43,3 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
     <p/>
   </div>
   <?php include $root . '/app/view/fragment/fragmentGenealogieFooter.html'; ?>
-
-<!-- ----- fin viewInsert -->

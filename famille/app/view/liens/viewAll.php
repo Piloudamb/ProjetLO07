@@ -27,7 +27,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
           <?php
           // La liste des liens            
           foreach ($results as $element) {
-           echo("<tr><td>" . $element->getFamille_id() ."</td><td>" . $element->getId() . "</td></tr><tr><td>" . $element->getIid1() ."</td><td>" . $element->getIid2() . "</td></tr><tr><td>" . $element->getLien_type() ."</td><td>" . $element->getLien_date() . "</td></tr><tr><td>" . $element->getLien_lieu() ."</td><td>");
+           echo("<tr><td>" . $element->getFamille_id() ."</td><td>" . $element->getId() . "</td><td>" . $element->getIid1() ."</td><td>" . $element->getIid2() . "</td><td>" . $element->getLien_type() ."</td><td>" . $element->getLien_date() . "</td><td>" . $element->getLien_lieu() ."</td></tr>");
           }
           ?>
       </tbody>
