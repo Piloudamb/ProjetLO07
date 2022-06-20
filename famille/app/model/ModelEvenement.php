@@ -85,7 +85,7 @@ class ModelEvenement {
     public static function getOneNom($nom) {
         try {
             $database = Model::getInstance();
-            $query = "select * from evenement e , famille f  where f.nom = :nom and e.famille_id=f.id";
+            $query = "select e.* from evenement e , famille f  where f.nom = :nom and e.famille_id=f.id";
             $statement = $database->prepare($query);
             $statement->execute([
                 'nom' => $nom

@@ -77,9 +77,10 @@ class ModelLien {
       } */
 
 // retourne une liste des liens
-    public static function getAlllien() {
+    public static function getAllLien() {
         try {
             $database = Model::getInstance();
+
             $query = "select * from lien";
             $statement = $database->prepare($query);
             $statement->execute();
@@ -133,13 +134,13 @@ class ModelLien {
             $query = "insert into lien(famille_id,id,iid1,iid2,lien_type,lien_date,lien_lieu) value (:famille_id, :id, :iid1, :iid2, :lien_type, :lien_date,  :lien_lieu)";
             $statement = $database->prepare($query);
             $statement->execute([
-                    'famille_id'=> $famille_id,
-                    'id'=>$id,
-                    'iid1' => $iid1,
-                    'iid2' => $iid2,
-                    'lien_type'=>$lien_type,
-                    'lien_date'=>$lien_date,
-                    'lien_lieu'=>$lien_lieu,
+                'famille_id' => $famille_id,
+                'id' => $id,
+                'iid1' => $iid1,
+                'iid2' => $iid2,
+                'lien_type' => $lien_type,
+                'lien_date' => $lien_date,
+                'lien_lieu' => $lien_lieu,
             ]);
             return $id;
         } catch (PDOException $e) {
