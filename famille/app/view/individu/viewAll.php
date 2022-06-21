@@ -29,7 +29,11 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
             foreach ($results as $element) {
                 echo("<tr>"
                 . "<td>" . $element->getFamille_id() . "</td>"
-                . "<td>" . $element->getId() . "</td>"
+                . "<td>"
+                        . "<a href=router1.php?action=individuReadOne&individu={$element->getId()}|{$element->getFamille_id()}>" 
+                        . $element->getId() 
+                        . "</a>"
+                . "</td>"
                 . "<td>" . $element->getNom() . "</td>"
                 . "<td>" . $element->getPrenom() . "</td>"
                 . "<td>" . $element->getSexe() . "</td>"
