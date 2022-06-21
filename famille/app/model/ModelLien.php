@@ -1,7 +1,6 @@
 <!-- ----- debut ModelIndividu -->
 
 <?php
-
 require_once 'Model.php';
 
 class ModelLien {
@@ -79,11 +78,11 @@ class ModelLien {
       } */
 
 // retourne une liste des liens
-    public static function getAllLien() {
+    public static function getAllLien($famille_id) {
         try {
             $database = Model::getInstance();
 
-            $query = "select * from lien";
+            $query = "select * from lien where famille_id=$famille_id";
             $statement = $database->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelLien");
@@ -94,16 +93,16 @@ class ModelLien {
         }
     }
 
-    public static function update ($iid1,$iid2,$sexe, $famille_id_parents) {
+    public static function update($iid1, $iid2, $sexe, $famille_id_parents) {
         try {
             $database = Model::getInstance();
             // mis a jour d'un nouveau tuple;
-             $query = "select max(id) from individu";
+            $query = "select max(id) from individu";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $famille_id = $tuple['0'];
             $famille_id++;
-            
+
             if ($sexe == "H") {
                 $query = "update individu set pere= :iid2 where id= :iid1 and famille_id= :famille_id_parents ";
             } else {
@@ -112,13 +111,12 @@ class ModelLien {
 
             $statement = $database->prepare($query);
             $statement->execute([
-                'iid1'=>$iid1,
-                'iid2'=>$iid2,
-                'famille_id_parents'=> $famille_id_parents,
-               
+                'iid1' => $iid1,
+                'iid2' => $iid2,
+                'famille_id_parents' => $famille_id_parents,
             ]);
-             $results = array("iid1" => $iid1, "iid2" => $iid2, "famille_id_parents" => $famille_id_parents);
-             return $results;
+            $results = array("iid1" => $iid1, "iid2" => $iid2, "famille_id_parents" => $famille_id_parents);
+            return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;
@@ -128,8 +126,6 @@ class ModelLien {
     public static function insert($famille_id, $iid1, $iid2, $lien_type, $lien_date, $lien_lieu) {
         try {
             $database = Model::getInstance();
-
-           
 
             $query = "select max(id) from lien";
             $statement = $database->query($query);
@@ -149,13 +145,29 @@ class ModelLien {
                 'lien_date' => $lien_date,
                 'lien_lieu' => $lien_lieu,
             ]);
-            $results= array("famille_id" => $famille_id, "id" => $id,'iid1' => $iid1,'iid2' => $iid2 );
+            $results = array("famille_id" => $famille_id, "id" => $id, 'iid1' => $iid1, 'iid2' => $iid2);
             return $results;
-            
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;
         }
+    }
+
+    //information union
+    public static function getUnions($individu, $id, $famille_id) {
+        $database = Model::getInstance();
+
+        //on vérifie le sexe
+        if ($individu->getSexe() == "H") {
+            $query6 = "select i.famille_id, i.id, i.nom, i.prenom, i.sexe, i.pere, i.mere from individu as i, lien as l where (lien_type='MARIAGE' or lien_type='COUPLE') and l.famille_id=$famille_id and l.iid1=$id and i.famille_id=l.famille_id and i.id=l.iid2";
+        } else {
+            $query6 = "select i.famille_id, i.id, i.nom, i.prenom, i.sexe, i.pere, i.mere from individu as i, lien as l where (lien_type='MARIAGE' or lien_type='COUPLE') and l.famille_id=$famille_id and l.iid2=$id and i.famille_id=l.famille_id and i.id=l.iid1";
+        }
+
+        $statement6 = $database->prepare($query6);
+        $statement6->execute();
+        $conquetes = $statement6->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+        return $conquetes;
     }
 
 }

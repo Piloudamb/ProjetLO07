@@ -11,6 +11,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         include $root . '/app/view/fragment/fragmentGenealogieJumbotron.php';
 
         if (isset($_SESSION["nom"])) {
+            echo("<h3>Liste des individus</h3>");
             echo('<table class = "table table-striped table-bordered">
             <thead>
                 <tr>

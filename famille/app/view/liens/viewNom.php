@@ -1,5 +1,3 @@
-
-<!-- ----- début viewNom -->
 <?php
 require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
 ?>
@@ -9,21 +7,19 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         <?php
         include $root . '/app/view/fragment/fragmentGenealogieMenu.html';
         include $root . '/app/view/fragment/fragmentGenealogieJumbotron.php';
-
-        // $results contient un tableau avec la liste des clés.
         ?>
-        <h3>Sélection d'une famille</h3>
+        <h3>Veuillez choisir une famille</h3>
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
-                <input type="hidden" name='action' value='familleReadOne'>
+                <input type="hidden" name='action' value='lienReadAll'>
                 <label for="nom">nom : </label> <select class="form-control" id='famille' name='famille' style="width: 100px">
-                    <?php
-                    foreach ($results as $famille) {
-                        echo ("<option value='{$famille->getId()}|{$famille->getNom()}'>"
-                        . "{$famille->getNom()}"
-                        . "</option>");
-                    }
-                    ?>
+<?php
+foreach ($results as $famille) {
+    echo ("<option value='{$famille->getId()}|{$famille->getNom()}'>"
+    . "{$famille->getNom()}"
+    . "</option>");
+}
+?>
                 </select>
             </div>
             <p/>
@@ -32,6 +28,6 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         <p/>
     </div>
 
-    <?php include $root . '/app/view/fragment/fragmentGenealogieFooter.html'; ?>
+<?php include $root . '/app/view/fragment/fragmentGenealogieFooter.html'; ?>
 
     <!-- ----- fin viewNom -->

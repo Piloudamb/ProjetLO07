@@ -11,7 +11,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         include $root . '/app/view/fragment/fragmentGenealogieJumbotron.php';
         // $results contient un tableau avec la liste des clés.
         ?>
-        
+        <h3>Sélection d'un individu</h3>
         <form role="form" method='get' action='router1.php'>
             <div class="form-group">
                 <input type="hidden" name='action' value='individuReadOne'>

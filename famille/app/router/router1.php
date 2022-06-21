@@ -41,6 +41,7 @@ switch ($action) {
         ControllerEvenement::$action();
         break;
     case "lienReadAll":
+    case "lienReadNom":
     case "LienParentalCreate":
     case "LienParentalCreated":
     case "LienUnionCreate":

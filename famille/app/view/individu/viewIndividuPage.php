@@ -72,6 +72,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
                 . "</li>");
             }
             echo("</ol>");
+            echo("<br/>");
         }
         echo("</ul>");
         ?>

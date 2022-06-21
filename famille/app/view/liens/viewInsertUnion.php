@@ -17,7 +17,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
           <?php
             foreach ($resultshomme as $individu1) {
              echo ("<option  value='{$individu1->getId()}|{$individu1->getFamille_id()}'>"
-             . "{$individu1->getNom()}:{$individu1->getPrenom()}</option>");
+             . "{$individu1->getNom()} : {$individu1->getPrenom()}</option>");
             }
             ?>
         </select><br>
@@ -27,7 +27,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
             <?php
             foreach ($resultsfemme as $individu2) {
              echo ("<option value='{$individu2->getId()}'>"
-                     . "{$individu2->getNom()}:{$individu2->getPrenom()}</option>");
+                     . "{$individu2->getNom()} : {$individu2->getPrenom()}</option>");
             }
             ?>
         </select><br>

@@ -12,6 +12,7 @@ require ($root . '/app/view/fragment/fragmentGenealogieHeader.html');
         include $root . '/app/view/fragment/fragmentGenealogieJumbotron.php';
 
         if (isset($_SESSION["nom"])) {
+            echo("<h3>Création d'un individu</h3>");
             echo('<form role="form" method="get" action="router1.php">
             <div class="form-group">
                 <input type="hidden" name="action" value="individuCreated">

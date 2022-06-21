@@ -98,10 +98,7 @@ class ModelIndividu {
             $id++;
 
             // recherche de la valeur de la clé de la famille
-            $query1 = "select id from famille where nom = '$nom'";
-            $statement1 = $database->query($query1);
-            $tuple1 = $statement1->fetch();
-            $famille_id = $tuple1['0'];
+            $famille_id = $_SESSION["famille_id"];
 
             //insertion d'un individu
             $query2 = "insert into individu (famille_id, id, nom, prenom, sexe) value (:famille_id, :id, :nom, :prenom, :sexe)";
@@ -207,18 +204,9 @@ class ModelIndividu {
             $statement5->execute();
             $response5 = $statement5->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
             $mere = $response5[0];
-
-            //information union
-            //on vérifie le sexe
-            if ($individu->getSexe() == "H") {
-                $query6 = "select i.famille_id, i.id, i.nom, i.prenom, i.sexe, i.pere, i.mere from individu as i, lien as l where (lien_type='MARIAGE' or lien_type='COUPLE') and l.famille_id=$famille_id and l.iid1=$id and i.famille_id=l.famille_id and i.id=l.iid2";
-            } else {
-                $query6 = "select i.famille_id, i.id, i.nom, i.prenom, i.sexe, i.pere, i.mere from individu as i, lien as l where (lien_type='MARIAGE' or lien_type='COUPLE') and l.famille_id=$famille_id and l.iid2=$id and i.famille_id=l.famille_id and i.id=l.iid1";
-            }
-
-            $statement6 = $database->prepare($query6);
-            $statement6->execute();
-            $conquetes = $statement6->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
+            
+            //informations unions
+            $conquetes = ModelLien::getUnions($individu, $id, $famille_id);
 
             //information enfants
             $unions = array();

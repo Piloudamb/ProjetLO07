@@ -72,10 +72,10 @@ class ModelEvenement {
     public static function getAllNom() {
         try {
             $database = Model::getInstance();
-            $query = "select nom from famille";
+            $query = "select * from famille";
             $statement = $database->prepare($query);
             $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_COLUMN, 0);
+            $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelFamille");
             return $results;
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
