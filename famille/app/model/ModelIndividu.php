@@ -124,7 +124,7 @@ class ModelIndividu {
     public static function getAllNom() {
         try {
             $database = Model::getInstance();
-            $query = "select * from individu";
+            $query = "select * from individu where id<>0";
             $statement = $database->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelIndividu");
